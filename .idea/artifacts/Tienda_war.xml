@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Tienda:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Tienda</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Tienda-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Tienda:war exploded" />
+    </root>
+  </artifact>
+</component>

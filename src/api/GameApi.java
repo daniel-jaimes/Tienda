@@ -1,5 +1,6 @@
 package api;
 
+import exceptions.LogicExceptions;
 import model.Component;
 import model.Game;
 import service.Service;
@@ -24,7 +25,7 @@ public class GameApi {
         Game game;
         try {
             game = service.getGameBy(gameId);
-        } catch (SQLException e) {
+        } catch (SQLException | LogicExceptions e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         return Response.ok(game, MediaType.APPLICATION_JSON).build();
@@ -36,7 +37,7 @@ public class GameApi {
         ArrayList<Game> games;
         try {
             games = service.getAllGames();
-        } catch (SQLException e) {
+        } catch (SQLException | LogicExceptions e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         return Response.ok(games, MediaType.APPLICATION_JSON).build();

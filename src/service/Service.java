@@ -1,6 +1,7 @@
 package service;
 
 import dao.Dao;
+import exceptions.LogicExceptions;
 import model.Component;
 import model.Game;
 
@@ -24,12 +25,16 @@ public class Service {
     }
 
 
-    public Component getComponentById(int id) throws SQLException {
-        return dao.getComponentById(id);
+    public Component getComponentById(int id) throws SQLException, LogicExceptions {
+        Component com = dao.getComponentById(id);
+        if(com ==null) throw new LogicExceptions(LogicExceptions.ISNT_EXIST_ID);
+        return com;
     }
 
-    public ArrayList<Component> getAllComponents() throws SQLException {
-        return dao.getAllComponents();
+    public ArrayList<Component> getAllComponents() throws SQLException, LogicExceptions {
+        ArrayList<Component> comps = dao.getAllComponents();
+        if(comps.size() == 0) throw new LogicExceptions(LogicExceptions.EMPTY_COMPONENTS_DB);
+        return comps;
     }
 
     public void removeComponentByName(String name) throws SQLException {
@@ -45,13 +50,16 @@ public class Service {
         dao.saveGame(game);
     }
 
-    public ArrayList<Game> getAllGames() throws SQLException {
-        return dao.getAllGames();
+    public ArrayList<Game> getAllGames() throws SQLException, LogicExceptions {
+        ArrayList<Game> games =dao.getAllGames();
+        if(games.size() == 0) throw new LogicExceptions(LogicExceptions.EMPTY_GAMES_DB);
+        return games;
     }
 
-    public Game getGameBy(int gameId) throws SQLException {
-
-        return dao.getGameById(gameId);
+    public Game getGameBy(int gameId) throws SQLException, LogicExceptions {
+        Game game = dao.getGameById(gameId);
+        if(game != null) throw new LogicExceptions(LogicExceptions.ISNT_EXIST_ID);
+        return game;
     }
 
     public void updateGame(Game game) throws SQLException {

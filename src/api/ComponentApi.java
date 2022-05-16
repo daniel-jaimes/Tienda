@@ -1,5 +1,6 @@
 package api;
 
+import exceptions.LogicExceptions;
 import model.Component;
 import service.Service;
 
@@ -24,7 +25,7 @@ public class ComponentApi {
         Component component;
         try {
             component = service.getComponentById(componentId);
-        }catch (SQLException e) {
+        }catch (SQLException | LogicExceptions e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         return Response.ok(component, MediaType.APPLICATION_JSON).build();
@@ -36,7 +37,7 @@ public class ComponentApi {
         ArrayList<Component> components;
         try {
             components = service.getAllComponents();
-        }catch (SQLException e) {
+        }catch (SQLException | LogicExceptions e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         return Response.ok(components, MediaType.APPLICATION_JSON).build();

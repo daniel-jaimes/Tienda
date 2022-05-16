@@ -24,8 +24,9 @@ public class GameApi {
     }
 
     @PUT
-    public void putGame(Game game) {
+    public Response putGame(Game game) {
         //TODO codigo
+        return Response.ok("Los componentes: ", MediaType.APPLICATION_JSON).build();
     }
 
     @POST

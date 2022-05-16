@@ -1,5 +1,4 @@
-CREATE
-    DATABASE dam2tm03uf6p2;
+CREATE DATABASE dam2tm03uf6p2;
 use dam2tm03uf6p2;
 #DROP table dam2tm03uf6p2.componente;
 #DROP table dam2tm03uf6p2.juego;
@@ -18,4 +17,6 @@ CREATE TABLE dam2tm03uf6p2.juego
         REFERENCES dam2tm03uf6p2.componente (id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
-select * from componente;
+select * from juego;
+
+INSERT INTO dam2tm03uf6p2.componente (nombre, descripcion) VALUES ('DWAD', 'ADWDAW');

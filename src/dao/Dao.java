@@ -74,7 +74,19 @@ public class Dao {
         return components;
     }
 
-    public void removeComponentByName(String name) {
+    public void removeComponentByName(String name) throws SQLException {
+        System.out.println(name);
+        try(PreparedStatement ps = this.connection.prepareStatement(ConstantsAPI.DELETE_COMPONENT_BY_NAME)){
+            ps.setString(1, name);
+            ps.executeUpdate();
+        }
+    }
 
+    public void insertComponent(Component component) throws SQLException {
+        try (PreparedStatement ps = this.connection.prepareStatement(ConstantsAPI.INSERT_COMPONENTE)){
+            ps.setString(1, component.getName());
+            ps.setString(2, component.getDescription());
+            ps.executeUpdate();
+        }
     }
 }

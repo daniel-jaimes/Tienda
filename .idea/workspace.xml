@@ -11,21 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78d3252f-444a-4d37-8ff4-7c7551e72167" name="Changes" comment="ComponentAPI half done">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Tienda_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Tienda_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Tienda_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Tienda_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/files/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/files/script.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/ComponentApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/ComponentApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/GameApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/GameApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/ConstantsAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ConstantsAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Dao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ConstantsAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ConstantsAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +54,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   },
@@ -161,8 +153,16 @@
       <option name="presentableId" value="Default" />
       <updated>1652290849526</updated>
       <workItem from="1652290856805" duration="1413000" />
-      <workItem from="1652728182973" duration="7293000" />
+      <workItem from="1652728182973" duration="8762000" />
     </task>
+    <task id="LOCAL-00001" summary="ComponentAPI half done">
+      <created>1652735602041</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652735602041</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

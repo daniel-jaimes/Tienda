@@ -2,10 +2,10 @@ package utils;
 
 public class ConstantsAPI {
     //COMPONENT
-    public static final String INSERT_COMPONENTE = "INSERT INTO componente (name, description) VALUES (?,?)";
+    public static final String INSERT_COMPONENTE = "INSERT INTO componente (nombre, descripcion) VALUES (?,?)";
     public static final String GET_COMPONENT_BY_ID = "SELECT * FROM componente WHERE ID = ?";
     public static final String GET_ALL_COMPONENTS = "SELECT * FROM componente";
-    public static final String DELETE_COMPONENT_BY_NAME = "DELETE FROM componente where nombre = ?";
+    public static final String DELETE_COMPONENT_BY_NAME = "DELETE FROM componente WHERE nombre = ?";
 
 
     //GAME

@@ -6,6 +6,7 @@ import service.Service;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 @Path("/component")
@@ -23,7 +24,7 @@ public class ComponentApi {
         Component component;
         try {
             component = service.getComponentById(componentId);
-        }catch (Exception e) {
+        }catch (SQLException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         return Response.ok(component, MediaType.APPLICATION_JSON).build();
@@ -35,7 +36,7 @@ public class ComponentApi {
         ArrayList<Component> components;
         try {
             components = service.getAllComponents();
-        }catch (Exception e) {
+        }catch (SQLException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         return Response.ok(components, MediaType.APPLICATION_JSON).build();
@@ -43,8 +44,12 @@ public class ComponentApi {
 
     @PUT
     @Path("/")
-    public Response putComponent() {
-        service.createComponent("", "");
+    public Response putComponent(Component component) {
+        try {
+            service.createComponent(component);
+        } catch (SQLException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
         return Response.ok("", MediaType.APPLICATION_JSON).build();
     }
 
@@ -53,9 +58,9 @@ public class ComponentApi {
     public Response deleteComponentByName(@QueryParam("name") String name){
         try {
             service.removeComponentByName(name);
-        }catch (Exception e){
+        }catch (SQLException e){
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
-        return Response.ok("", MediaType.APPLICATION_JSON).build();
+        return Response.ok("Se ha borrado correctamente", MediaType.APPLICATION_JSON).build();
     }
 }

@@ -26,21 +26,19 @@ public class Service {
     public Component getComponentById(int id) throws SQLException {
         Component component;
         component = dao.getComponentById(id);
-        System.out.println(component);
         return component;
     }
 
     public ArrayList<Component> getAllComponents() throws SQLException {
-        ArrayList<Component> components = new ArrayList<>();
-        components = dao.getAllComponents();
-        return components;
+        return dao.getAllComponents();
     }
 
-    public void removeComponentByName(String name) {
+    public void removeComponentByName(String name) throws SQLException {
         dao.removeComponentByName(name);
     }
 
-    public void createComponent(String name, String descripcion) {
 
+    public void createComponent(Component component) throws SQLException {
+        dao.insertComponent(component);
     }
 }

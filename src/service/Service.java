@@ -2,6 +2,7 @@ package service;
 
 import dao.Dao;
 import model.Component;
+import model.Game;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,9 +25,7 @@ public class Service {
 
 
     public Component getComponentById(int id) throws SQLException {
-        Component component;
-        component = dao.getComponentById(id);
-        return component;
+        return dao.getComponentById(id);
     }
 
     public ArrayList<Component> getAllComponents() throws SQLException {
@@ -40,5 +39,22 @@ public class Service {
 
     public void createComponent(Component component) throws SQLException {
         dao.insertComponent(component);
+    }
+
+    public void createGame(Game game) throws SQLException {
+        dao.saveGame(game);
+    }
+
+    public ArrayList<Game> getAllGames() throws SQLException {
+        return dao.getAllGames();
+    }
+
+    public Game getGameBy(int gameId) throws SQLException {
+
+        return dao.getGameById(gameId);
+    }
+
+    public void updateGame(Game game) throws SQLException {
+        dao.updateGame(game);
     }
 }

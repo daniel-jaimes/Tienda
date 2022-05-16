@@ -1,5 +1,6 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Component {
@@ -18,6 +19,7 @@ public class Component {
         this.description = description;
     }
 
+    @JsonCreator
     public Component(
             @JsonProperty("id") int id,
             @JsonProperty("name") String name,

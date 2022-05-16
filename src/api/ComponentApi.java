@@ -50,7 +50,7 @@ public class ComponentApi {
         } catch (SQLException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
-        return Response.ok("", MediaType.APPLICATION_JSON).build();
+        return Response.ok("Componente creado satifactoriamente", MediaType.APPLICATION_JSON).build();
     }
 
     @DELETE

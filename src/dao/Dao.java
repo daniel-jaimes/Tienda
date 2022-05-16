@@ -1,6 +1,7 @@
 package dao;
 
 import model.Component;
+import model.Game;
 import utils.ConstantsAPI;
 
 import java.sql.*;
@@ -86,6 +87,56 @@ public class Dao {
         try (PreparedStatement ps = this.connection.prepareStatement(ConstantsAPI.INSERT_COMPONENTE)){
             ps.setString(1, component.getName());
             ps.setString(2, component.getDescription());
+            ps.executeUpdate();
+        }
+    }
+
+    public void saveGame(Game game) throws SQLException {
+        try (PreparedStatement ps = this.connection.prepareStatement(ConstantsAPI.INSERT_GAME)){
+            ps.setString(1, game.getName());
+            ps.setInt(2, game.getComponentId());
+            ps.executeUpdate();
+        }
+    }
+
+    public ArrayList<Game> getAllGames() throws SQLException {
+        ArrayList<Game> games = new ArrayList<>();
+        try (Statement st = this.connection.createStatement()) {
+            try (ResultSet rs = st.executeQuery(ConstantsAPI.GET_ALL_GAMES)) {
+                while (rs.next()) {
+                    games.add(new Game(
+                            rs.getInt("id"),
+                            rs.getString("nombre"),
+                            rs.getInt("componente")
+                    ));
+                }
+            }
+        }
+        return games;
+    }
+
+    public Game getGameById(int gameId) throws SQLException {
+        Game game;
+        try (PreparedStatement ps = this.connection.prepareStatement(ConstantsAPI.GET_GAME_BY_ID)) {
+            ps.setInt(1, gameId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (!rs.next()) return null;
+                else {
+                    game = new Game(
+                            rs.getInt("id"),
+                            rs.getString("nombre"),
+                            rs.getInt("componente")
+                    );
+                }
+            }
+        }
+        return game;
+    }
+
+    public void updateGame(Game game) throws SQLException {
+        try (PreparedStatement ps = this.connection.prepareStatement(ConstantsAPI.UPDATE_GAME)){
+            ps.setString(1, game.getName());
+            ps.setInt(2, game.getComponentId());
             ps.executeUpdate();
         }
     }
